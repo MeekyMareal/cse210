@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 namespace Journal
 {
     public class Journal
@@ -38,8 +37,6 @@ namespace Journal
                 Console.WriteLine("Invalid file extensions format");
             }
         }
-
-
         public void ReadFromFile()
         {
             Console.WriteLine("What is the filename? ");

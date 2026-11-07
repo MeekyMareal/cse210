@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
 namespace Journal
 {
     class Program
@@ -16,14 +15,8 @@ namespace Journal
             p1._prompt3 = "How did I see the hand of the Lord in my life today?";
             p1._prompt4 = "What was the strongest emotion I felt today";
             p1._prompt5 = "If I had one thing I could do over today, what would it be?";
-
-            
-
             Journal journal = new Journal();
-
             int option = 0;
-            
-
             while (option != 5)
             {
                 Console.WriteLine("1. Write");
@@ -37,7 +30,6 @@ namespace Journal
                 {
                     if (option == 1)
                     {
-
                         DateTime theCurrentTime = DateTime.Now;
                         Entry entry = new Entry();
                         entry._date = theCurrentTime.ToShortDateString();
@@ -51,13 +43,10 @@ namespace Journal
                     {
                         journal.Display();
                     }
-
                     else if (option == 3)
                     {
-
                         journal.ReadFromFile();
                     }
-
                     else if (option == 4)
                     {
                         journal.SaveToFile();
