@@ -33,7 +33,7 @@ namespace Journal
                         DateTime theCurrentTime = DateTime.Now;
                         Entry entry = new Entry();
                         entry._date = theCurrentTime.ToShortDateString();
-                        entry._allGeneratedOutputs = ($"{p1.GetGeneratedPrompt()}");
+                        entry._allGeneratedOutputs = p1.GetGeneratedPrompt();
                         Console.WriteLine("");
                         string readUserPrompt = Console.ReadLine();
                         entry._allStoredInputs = readUserPrompt;

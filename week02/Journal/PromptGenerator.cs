@@ -22,6 +22,8 @@ public class PromptGenerator
         _prompts.Add(_prompt4);
         _prompts.Add(_prompt5);
 
-        return _prompts[random.Next(_prompts.Count)];
+        string generatedPrompt = _prompts[random.Next(_prompts.Count)];
+        Console.Write($"{generatedPrompt}");
+        return generatedPrompt;
     }
 }
