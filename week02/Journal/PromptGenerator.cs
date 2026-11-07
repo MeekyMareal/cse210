@@ -15,14 +15,13 @@ public class PromptGenerator
     public string GetGeneratedPrompt()
     {
         Random random = new Random();
+        List<string> _prompts = new List<string>();
+        _prompts.Add(_prompt1);
+        _prompts.Add(_prompt2);
+        _prompts.Add(_prompt3);
+        _prompts.Add(_prompt4);
+        _prompts.Add(_prompt5);
 
-        Journal.Journal jnl = new Journal.Journal();
-        Entry ent = new Entry();
-
-
-        string generatedPrompt = new[] { _prompt1, _prompt2, _prompt3, _prompt4, _prompt5 }[random.Next(5)];
-        Console.Write($"{generatedPrompt}");
-        return generatedPrompt;
-
+        return _prompts[random.Next(_prompts.Count)];
     }
 }
