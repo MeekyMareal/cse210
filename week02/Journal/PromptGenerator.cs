@@ -23,7 +23,7 @@ public class PromptGenerator
         _prompts.Add(_prompt5);
 
         string generatedPrompt = _prompts[random.Next(_prompts.Count)];
-        Console.Write($"{generatedPrompt}");
+        // Console.Write($"{generatedPrompt}");
         return generatedPrompt;
     }
 }

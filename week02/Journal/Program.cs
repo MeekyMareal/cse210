@@ -13,7 +13,7 @@ namespace Journal
             p1._prompt1 = "Who was the most interesting person I interacted with today?";
             p1._prompt2 = "What was the best part of my day?";
             p1._prompt3 = "How did I see the hand of the Lord in my life today?";
-            p1._prompt4 = "What was the strongest emotion I felt today";
+            p1._prompt4 = "What was the strongest emotion I felt today?";
             p1._prompt5 = "If I had one thing I could do over today, what would it be?";
             Journal journal = new Journal();
             int option = 0;
@@ -33,10 +33,10 @@ namespace Journal
                         DateTime theCurrentTime = DateTime.Now;
                         Entry entry = new Entry();
                         entry._date = theCurrentTime.ToShortDateString();
-                        entry._allGeneratedOutputs = p1.GetGeneratedPrompt();
-                        Console.WriteLine("");
+                        entry._promptText = p1.GetGeneratedPrompt();
+                        Console.WriteLine(entry._promptText);
                         string readUserPrompt = Console.ReadLine();
-                        entry._allStoredInputs = readUserPrompt;
+                        entry._userResponse = readUserPrompt;
                         journal._entries.Add(entry);
                     }
                     else if (option == 2)
@@ -51,7 +51,8 @@ namespace Journal
                     {
                         journal.SaveToFile();
                     }
-                } else
+                }
+                else
                 {
                     Console.WriteLine("Invalid input, Please select from 1-5");
                 }

@@ -25,9 +25,9 @@ namespace Journal
                     foreach (Entry en in _entries)
                     {
                         string savedDate = en._date;
-                        string savedPrompt = en._allGeneratedOutputs;
-                        string savedInputPrompt = en._allStoredInputs;
-                        outputFile.WriteLine($"{savedDate},{savedPrompt},{savedInputPrompt}");
+                        string savedPrompt = en._promptText;
+                        string savedInputPrompt = en._userResponse;
+                        outputFile.WriteLine($"{savedDate}¬{savedPrompt}¬{savedInputPrompt}");
                     }
                 }
                 Console.WriteLine("File saved successfully....");
@@ -40,7 +40,7 @@ namespace Journal
         public void ReadFromFile()
         {
             Console.WriteLine("What is the filename? ");
-
+            _entries.Clear();
             string fileName = Console.ReadLine();
             if (fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) || fileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
             {
@@ -48,13 +48,13 @@ namespace Journal
 
                 foreach (string line in lines)
                 {
-                    string[] parts = line.Split(',');
+                    string[] parts = line.Split('¬');
                     if (parts.Length == 3)
                     {
                         Entry en = new Entry();
                         en._date = parts[0];
-                        en._allGeneratedOutputs = parts[1];
-                        en._allStoredInputs = parts[2];
+                        en._promptText = parts[1];
+                        en._userResponse = parts[2];
                         _entries.Add(en);
                     }
                 }
