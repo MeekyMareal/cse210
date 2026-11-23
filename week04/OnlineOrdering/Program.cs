@@ -1,50 +1,38 @@
 using System;
+using System.Collections.Generic;
+namespace OnlineOrdering 
+{
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the OnlineOrdering Project.");
+        List<Order> orders = new List<Order>();
+
+        Address address1 = new Address("4844 Birch Avenue", "Duluth", "Minnesota", "USA");
+        Customer customer1 = new Customer("George Ekpo", address1);
+        Order order1 = new Order(customer1);
+        order1.AddProduct(new Product("Wireless Mouse", "MK-101", 24.50, 2));
+        order1.AddProduct(new Product("Anti Blue Light", "MK-204", 15.00, 1));
+        order1.AddProduct(new Product("USB-C Cable", "MK-309", 9.99, 3));
+        orders.Add(order1);
+
+        Address address2 = new Address("Ikpokpan Close", "Benin", "Edo State", "Nigeria");
+        Customer customer2 = new Customer("Joshua Ekpo", address2);
+        Order order2 = new Order(customer2);
+        order2.AddProduct(new Product("Mechanical Keyboard", "MK-410", 79.00, 1));
+        order2.AddProduct(new Product("Laptop Stand", "MK-512", 32.50, 2));
+        orders.Add(order2);
+
+        foreach (Order order in orders)
+        {
+            Console.WriteLine(order.GetPackageDetails());
+            Console.WriteLine();
+            Console.WriteLine(order.GetShippingDetails());
+            Console.WriteLine();
+            Console.WriteLine($"Total Price: ${order.TotalCost():F2}");
+            Console.WriteLine();
+        }
     }
 }
-
-Online Ordering Start
-
-Address 
-private string _street
-private string _city
-private string _state
-private string _country
-public Address(string street, string city, string state, string country)
-public bool inUsa()
-public string GetAddress()
-
-Product 
-private string _name
-private string _id
-private double _unitPrice
-private int _quantity
-public Product(string name, string id, double unitPrice, int quantity)
-public double Total()
-public string GetPackageDetails()
-
-
-Customer 
-private string _name to
-private Address _address
-public Customer(string name, Address address)
-public bool ClientInUsa()
-public string GetShippingDetails()
-
-
-Order
-private List<Product> _products
-private Customer _customer
-public Order(Customer customer)
-public void AddProduct(Product product)
-public double totalCost()
-public string GetPackageDetails()
-public string GetShippingDetails()
-
-Ordering online Ends
-Copyright 2026 BYU-Pathway Worldwide
+}
