@@ -30,7 +30,7 @@ class Program
             Console.WriteLine();
             Console.WriteLine(order.GetShippingDetails());
             Console.WriteLine();
-            Console.WriteLine($"Total Price: ${order.TotalCost():F2}");
+            Console.WriteLine($"Total Price: ${order.TotalCost()}");
             Console.WriteLine();
         }
     }
