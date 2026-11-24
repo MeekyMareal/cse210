@@ -9,11 +9,11 @@ public class Customer
         _name = name;
         _address = address;
     }
-    public bool ClientInUsa()
+    public bool IsClientInUsa()
     {
-        return _address.InUsa();
+        return _address.IsInUsa();
     }
-    public string GetShippingDetail()
+    public string GetShipping()
     {
         return $"{_name}, {_address.GetAddress()}";
     }

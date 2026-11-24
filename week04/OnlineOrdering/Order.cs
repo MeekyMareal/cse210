@@ -17,34 +17,33 @@ public class Order
     public double TotalCost()
     {
         double total = 0;
-        foreach(Product products in _products)
+        foreach(Product product in _products)
         {
-            total += products.Total();
+            total += product.Total();
         }
-        bool shipment = _customer.ClientInUsa();
-        double reduceFee = 5.0;
-        double increaseFee = 5.0;
+        bool shipment = _customer.IsClientInUsa();
+        double reduce = 5.0;
+        double increase = 35.0;
         if (shipment == true)
         {
-            return total + reduceFee;
+            return total + reduce;
         }
         else
         {
-            return total + increaseFee;
-        }
-        
+            return total + increase;
+        }  
     }
     public string GetPackageDetails()
     {
         string label = "";
-        foreach(Product products in _products)
+        foreach(Product product in _products)
         {
-            label += products.GetPackageInfo();
+            label += product.GetPackageInfo();
         }
         return label;
     }
     public string GetShippingDetails()
     {
-        return $"Shipping Details: {_customer.GetShippingDetail()}";
+        return $"Shipping Details: {_customer.GetShipping()}";
     }
 }

@@ -13,10 +13,10 @@ public class Address
         _state  = state;
         _country = country;
     }
-    public bool InUsa()
+    public bool IsInUsa()
     {
-        string countryCheck = _country.Trim().ToUpper();
-        return countryCheck == "USA";
+        string check = _country.Trim().ToUpper();
+        return check == "USA";
     }
     public string GetAddress()
     {
